@@ -192,3 +192,40 @@ button {
     height: 18px;
   }
 }
+#radar-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(10, 10, 10, 0.95);
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+}
+
+#radar-overlay iframe {
+    flex: 1;
+}
+
+.radar-header {
+    padding: 10px;
+    background-color: #222;
+    color: white;
+    text-align: right;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.topbar-button {
+    margin-left: auto;
+    background-color: #555;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
