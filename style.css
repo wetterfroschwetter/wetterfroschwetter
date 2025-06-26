@@ -91,3 +91,12 @@ button {
     border-radius: 5px;
     cursor: pointer;
 }
+.logo-link {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
+}
+.logo-link:hover {
+    text-decoration: underline;
+}
