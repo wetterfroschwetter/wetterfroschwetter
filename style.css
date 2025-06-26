@@ -191,3 +191,74 @@ button {
     height: 16px;
   }
 }
+ChatGPT:
+Super! Du hast jetzt dein eigenes optimiertes Mobile-Background-Bild – und ich gebe dir alle passenden Code-Snippets, damit:
+
+✅ Was du bekommst:
+📱 Nur Mobile: eigenes Hintergrundbild
+
+💬 Sprechblasen-Inhalt sitzt korrekt & transparent
+
+👁️ Font bei Mobile = system-default (nicht Comic Sans)
+
+✨ Gesamte Seite responsiv und mobilfreundlich
+
+🔧 1. In deiner style.css GANZ UNTEN einfügen:
+css
+Kopieren
+Bearbeiten
+/* 📱 Mobile Optimierung */
+@media (max-width: 600px) {
+  body {
+    background: url('background_mobile.webp') no-repeat center top;
+    background-size: cover;
+    overflow-x: hidden;
+  }
+
+  #speech-bubble {
+    position: absolute;
+    top: 26%;
+    left: 66%;
+    transform: translate(-50%, -50%);
+    width: 220px;
+    height: auto;
+    background-color: transparent;
+    font-family: system-ui, -apple-system, sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    color: #000;
+    text-align: center;
+    line-height: 1.4;
+    padding: 5px;
+    white-space: normal;
+  }
+
+  #city-input {
+    width: 140px;
+    font-size: 14px;
+  }
+
+  button {
+    font-size: 14px;
+    padding: 8px 10px;
+  }
+
+  .topbar, .bottombar {
+    font-size: 15px;
+    padding: 8px 10px;
+    text-align: center;
+  }
+
+  .search-container {
+    padding-top: 80px;
+  }
+
+  .logo-link {
+    font-size: 16px;
+  }
+
+  .logo-link img.logo-icon {
+    width: 18px;
+    height: 18px;
+  }
+}
