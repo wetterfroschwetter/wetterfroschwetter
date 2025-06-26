@@ -102,39 +102,37 @@ document.addEventListener("DOMContentLoaded", () => {
     const closeBtn = document.getElementById('close-radar');
     const overlay = document.getElementById('radar-overlay');
 
-    radarBtn.addEventListener('click', () => {
-        overlay.classList.remove('hidden');
+   radarBtn.addEventListener('click', () => {
+    overlay.classList.remove('hidden');
 
-       setTimeout(() => {
-    if (!radarInitialized) {
-        map = L.map('map').setView([51, 10], 6);
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; OpenStreetMap-Mitwirkende'
-        }).addTo(map);
+    setTimeout(() => {
+        if (!radarInitialized) {
+            map = L.map('map').setView([51, 10], 6);
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; OpenStreetMap-Mitwirkende'
+            }).addTo(map);
 
-       player = new RainViewer({
-    map: map,
-    opacity: 0.75,
-    animationInterval: 500,
-    colorScheme: 3,
-    smoothData: true,
-    snowColors: false
+            player = new RainViewer({
+                map: map,
+                opacity: 0.75,
+                animationInterval: 500,
+                colorScheme: 3,
+                smoothData: true,
+                snowColors: false
+            });
+            player.loadFrames();
+            player.onLoaded(() => {
+                player.showFrame(player.getLastFrameIndex());
+                player.updateLayer();
+                player.start();
+            });
+
+            radarInitialized = true;
+        } else {
+            setTimeout(() => map.invalidateSize(), 50);
+        }
+    }, 100);
 });
-player.loadFrames();
-player.onLoaded(() => {
-    
-    player.showFrame(player.getLastFrameIndex()); // aktuelles Radarbild
-    player.updateLayer(); /
-    player.start(); // Animation starten
-});;
-
-        radarInitialized = true;
-    } else {
-       setTimeout(() => map.invalidateSize(), 50);
-    }
-}, 100);// Karte braucht kurzen Delay, um sichtbar zu sein
-    });
-
     closeBtn.addEventListener('click', () => {
         overlay.classList.add('hidden');
         if (player) {
