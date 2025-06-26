@@ -52,3 +52,5 @@ document.getElementById('impressum-button').addEventListener('click', () => {
         Keine Cookies. Kein Tracking.<br>
     `;
 });
+<link rel="stylesheet" href="style.css?v=2" />
+<script src="script.js?v=2"></script>
