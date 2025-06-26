@@ -70,7 +70,6 @@ document.getElementById('weather-form').addEventListener('submit', function(e) {
             bubble.textContent = '⚠️ Fehler beim Laden der Ortsdaten.';
         });
 });
-});
 // Impressum anzeigen
 document.getElementById('impressum-button').addEventListener('click', () => {
     const bubble = document.getElementById('speech-bubble');
