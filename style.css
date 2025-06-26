@@ -118,3 +118,8 @@ button {
     text-decoration: none;
     opacity: 0.9;
 }
+.disclaimer-text {
+    font-style: italic;
+    font-size: 12px;
+    opacity: 0.8;
+}
