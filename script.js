@@ -1,5 +1,5 @@
-const lat = 52.52;
-const lon = 13.405;
+const lat = 48.56;
+const lon = 13.43;
 
 fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true`)
   .then(response => response.json())
