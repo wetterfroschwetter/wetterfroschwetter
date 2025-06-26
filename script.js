@@ -1,9 +1,17 @@
 
 document.getElementById('weather-form').addEventListener('submit', function(e) {
     e.preventDefault();
-    const city = document.getElementById('city-input').value;
-     const city = rawInput.trim().replace(/\s+/g, ' ');
+
+    const rawInput = document.getElementById('city-input').value || "";
+    const city = rawInput.trim().replace(/\s+/g, ' '); // Eingabe bereinigen
+
     const bubble = document.getElementById('speech-bubble');
+
+    if (!city) {
+        bubble.textContent = '❌ Bitte gib einen Ort ein!';
+        return;
+    }
+
     bubble.textContent = '🌡️ Lade Wetterdaten...';
 
     fetch(`https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(city)}&count=1`)
