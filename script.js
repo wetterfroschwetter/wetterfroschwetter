@@ -58,7 +58,7 @@ document.getElementById('weather-form').addEventListener('submit', function(e) {
                     }
 
                     bubble.innerHTML = message;
-                    bubble.style.fontSize = '24px';
+                    bubble.style.fontSize = window.innerWidth < 600 ? '13px' : '24px';
                     bubble.style.fontWeight = 'bold';
                     bubble.style.textAlign = 'center';
                     bubble.style.justifyContent = 'center';
