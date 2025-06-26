@@ -14,7 +14,7 @@
 }body {
     margin: 0;
     padding: 0;
-    background: url('background_clean.webp') no-repeat center center;
+    background: url('background.webp') no-repeat center center;
     background-size: cover;
     font-family: sans-serif;
     height: 100vh;
@@ -122,25 +122,4 @@ button {
     font-style: italic;
     font-size: 12px;
     opacity: 0.8;
-}
-.frog-container {
-  position: absolute;
-  bottom: 30px; /* statt bottom: 100px */
-  left: 50%;
-  transform: translateX(-50%);
-  width: 200px;
-  animation: bobble 3s ease-in-out infinite;
-}
-@keyframes bobble {
-  0%, 100% {
-    transform: translateX(-50%) translateY(0);
-  }
-  50% {
-    transform: translateX(-50%) translateY(-5px);
-  }
-}
-
-.frog-container {
-  ...
-  animation: bobble 3s ease-in-out infinite;
 }
