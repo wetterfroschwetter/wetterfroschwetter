@@ -14,7 +14,7 @@
 }body {
     margin: 0;
     padding: 0;
-    background: url('background.webp') no-repeat center center;
+    background: url('background_clean.webp') no-repeat center center;
     background-size: cover;
     font-family: sans-serif;
     height: 100vh;
