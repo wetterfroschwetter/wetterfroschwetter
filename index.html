@@ -29,7 +29,18 @@
     </div>
     <div id="speech-bubble" class="mobile-friendly">🌡️ Gib einen Ort ein...</div>
     <script src="script.js"></script>
+<div id="radar-overlay" class="hidden">
+  <div class="radar-header">
+    <button id="close-radar">❌ Schließen</button>
+  </div>
+  <div id="map" style="flex: 1;"></div>
+  <div class="radar-attribution">Radar-Daten: © <a href="https://www.rainviewer.com" target="_blank">RainViewer</a></div>
+</div>
 
+<!-- Leaflet & RainViewer Scripts -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://api.rainviewer.com/js/rainviewer.min.js"></script>
 
 </body>
 </html>
