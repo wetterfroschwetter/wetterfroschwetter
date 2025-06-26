@@ -2,6 +2,7 @@
 document.getElementById('weather-form').addEventListener('submit', function(e) {
     e.preventDefault();
     const city = document.getElementById('city-input').value;
+     const city = rawInput.trim().replace(/\s+/g, ' ');
     const bubble = document.getElementById('speech-bubble');
     bubble.textContent = '🌡️ Lade Wetterdaten...';
 
