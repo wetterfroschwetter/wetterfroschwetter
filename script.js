@@ -94,46 +94,37 @@ document.getElementById('impressum-button').addEventListener('click', () => {
         <strong>Datenschutz:</strong> keine Datenspeicherung, keine Cookies, Wetterdaten von Open-Meteo.com.
     `;
 });
-document.getElementById('radar-button').addEventListener('click', () => {
-    document.getElementById('radar-overlay').classList.remove('hidden');
-});
-
-document.getElementById('close-radar').addEventListener('click', () => {
-    document.getElementById('radar-overlay').classList.add('hidden');
-});
 let radarInitialized = false;
 let map, player;
 
-document.getElementById('radar-button').addEventListener('click', () => {
-    const overlay = document.getElementById('radar-overlay');
-    overlay.classList.remove('hidden');
-
-    // Leaflet braucht sichtbares Element
-    setTimeout(() => {
-        if (!radarInitialized) {
-            map = L.map('map').setView([51, 10], 6);
-
-            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                attribution: '&copy; OpenStreetMap-Mitwirkende'
-            }).addTo(map);
-
-            player = new RainViewer({ map });
-           
-            player.loadFrames();
-             window.player = player;
-            radarInitialized = true;
-        } else {
-            map.invalidateSize(); // wenn es schon geladen wurde
-        }
-    }, 100); // minimaler Delay für Sichtbarkeit
-});
 document.addEventListener("DOMContentLoaded", () => {
-    document.getElementById('close-radar').addEventListener('click', () => {
-        document.getElementById('radar-overlay').classList.add('hidden');
+    const radarBtn = document.getElementById('radar-button');
+    const closeBtn = document.getElementById('close-radar');
+    const overlay = document.getElementById('radar-overlay');
 
-        if (window.player) {
-            window.player.stop();
+    radarBtn.addEventListener('click', () => {
+        overlay.classList.remove('hidden');
+
+        setTimeout(() => {
+            if (!radarInitialized) {
+                map = L.map('map').setView([51, 10], 6);
+                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                    attribution: '&copy; OpenStreetMap-Mitwirkende'
+                }).addTo(map);
+
+                player = new RainViewer({ map });
+                player.loadFrames();
+                radarInitialized = true;
+            } else {
+                map.invalidateSize(); // wichtig für sichtbare Karte
+            }
+        }, 100); // Karte braucht kurzen Delay, um sichtbar zu sein
+    });
+
+    closeBtn.addEventListener('click', () => {
+        overlay.classList.add('hidden');
+        if (player) {
+            player.stop();
         }
     });
 });
-
