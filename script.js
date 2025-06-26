@@ -94,3 +94,10 @@ document.getElementById('impressum-button').addEventListener('click', () => {
         <strong>Datenschutz:</strong> keine Datenspeicherung, keine Cookies, Wetterdaten von Open-Meteo.com.
     `;
 });
+document.getElementById('radar-button').addEventListener('click', () => {
+    document.getElementById('radar-overlay').classList.remove('hidden');
+});
+
+document.getElementById('close-radar').addEventListener('click', () => {
+    document.getElementById('radar-overlay').classList.add('hidden');
+});
