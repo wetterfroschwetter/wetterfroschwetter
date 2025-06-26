@@ -130,3 +130,13 @@ document.getElementById('radar-button').addEventListener('click', () => {
 document.getElementById('close-radar').addEventListener('click', () => {
     document.getElementById('radar-overlay').classList.add('hidden');
 });
+document.addEventListener("DOMContentLoaded", () => {
+    document.getElementById('close-radar').addEventListener('click', () => {
+        document.getElementById('radar-overlay').classList.add('hidden');
+
+        if (window.player) {
+            window.player.stop();
+        }
+    });
+});
+
