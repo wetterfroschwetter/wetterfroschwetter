@@ -35,3 +35,20 @@ document.getElementById('weather-form').addEventListener('submit', function(e) {
             bubble.textContent = '⚠️ Fehler beim Laden der Wetterdaten.';
         });
 });
+// Impressum anzeigen
+document.getElementById('impressum-button').addEventListener('click', () => {
+    const bubble = document.getElementById('speech-bubble');
+    bubble.textContent = ''; // Leeren
+    bubble.innerHTML = `
+        <strong>Impressum</strong><br>
+        Paul-Vincent Langer<br>
+        Am Grübl 5c<br>
+        82205 Gilching<br><br>
+        <strong>Kontakt:</strong><br>
+        E-Mail: support@wetterfroschwetter.de<br><br>
+        <strong>Datenschutz:</strong><br>
+        Diese Website erhebt keine personenbezogenen Daten.<br>
+        Externe Wetterdaten von Open-Meteo.com.<br>
+        Keine Cookies. Kein Tracking.<br>
+    `;
+});
