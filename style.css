@@ -123,3 +123,17 @@ button {
     font-size: 12px;
     opacity: 0.8;
 }
+.logo-link {
+    color: white;
+    text-decoration: none;
+    font-weight: normal;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.logo-link img.logo-icon {
+    width: 20px;
+    height: 20px;
+}
