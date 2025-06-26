@@ -46,12 +46,19 @@ button {
     top: 27%;
     left: 57%;
     transform: translate(-50%, -50%);
-    background-color: transparent;
-    font-size: 20px;
-    font-weight: bold;
-    width: 300px;
-    text-align: center;
+    background-color: rgba(255,255,255,0.85);
+    font-size: 16px;
+    font-weight: normal;
+    width: 320px;
+    height: auto;
+    max-height: 200px;
+    overflow-y: auto;
+    padding: 12px;
+    border-radius: 15px;
+    text-align: left;
     color: #000;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    line-height: 1.4;
 }
 .topbar {
     width: 100%;
