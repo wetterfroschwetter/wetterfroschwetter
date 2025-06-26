@@ -112,12 +112,21 @@ document.addEventListener("DOMContentLoaded", () => {
             attribution: '&copy; OpenStreetMap-Mitwirkende'
         }).addTo(map);
 
-        player = new RainViewer({ map });
-        player.loadFrames();
-        player.onLoaded(() => {
-            player.showFrame(player.getLastFrameIndex());
-            player.start();
-        });
+       player = new RainViewer({
+    map: map,
+    opacity: 0.75,
+    animationInterval: 500,
+    colorScheme: 3,
+    smoothData: true,
+    snowColors: false
+});
+player.loadFrames();
+player.onLoaded(() => {
+    
+    player.showFrame(player.getLastFrameIndex()); // aktuelles Radarbild
+    player.updateLayer(); /
+    player.start(); // Animation starten
+});;
 
         radarInitialized = true;
     } else {
