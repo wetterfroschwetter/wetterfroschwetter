@@ -118,17 +118,14 @@ document.getElementById('radar-button').addEventListener('click', () => {
             }).addTo(map);
 
             player = new RainViewer({ map });
+           
             player.loadFrames();
-
+             window.player = player;
             radarInitialized = true;
         } else {
             map.invalidateSize(); // wenn es schon geladen wurde
         }
     }, 100); // minimaler Delay für Sichtbarkeit
-});
-
-document.getElementById('close-radar').addEventListener('click', () => {
-    document.getElementById('radar-overlay').classList.add('hidden');
 });
 document.addEventListener("DOMContentLoaded", () => {
     document.getElementById('close-radar').addEventListener('click', () => {
