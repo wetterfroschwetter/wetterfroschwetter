@@ -121,7 +121,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         radarInitialized = true;
     } else {
-        map.invalidateSize(); // wichtig für sichtbare Karte
+       setTimeout(() => map.invalidateSize(), 50);
     }
 }, 100);// Karte braucht kurzen Delay, um sichtbar zu sein
     });
