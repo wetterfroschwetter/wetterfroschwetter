@@ -101,20 +101,30 @@ document.getElementById('radar-button').addEventListener('click', () => {
 document.getElementById('close-radar').addEventListener('click', () => {
     document.getElementById('radar-overlay').classList.add('hidden');
 });
+let radarInitialized = false;
+let map, player;
+
 document.getElementById('radar-button').addEventListener('click', () => {
-    document.getElementById('radar-overlay').classList.remove('hidden');
+    const overlay = document.getElementById('radar-overlay');
+    overlay.classList.remove('hidden');
 
-    if (!window.radarInitialized) {
-        const map = L.map('map').setView([51, 10], 5); // Mitte Deutschland
+    // Leaflet braucht sichtbares Element
+    setTimeout(() => {
+        if (!radarInitialized) {
+            map = L.map('map').setView([51, 10], 6);
 
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; OpenStreetMap-Mitwirkende'
-        }).addTo(map);
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; OpenStreetMap-Mitwirkende'
+            }).addTo(map);
 
-        const player = new RainViewer({ map });
-        player.loadFrames();
-        window.radarInitialized = true;
-    }
+            player = new RainViewer({ map });
+            player.loadFrames();
+
+            radarInitialized = true;
+        } else {
+            map.invalidateSize(); // wenn es schon geladen wurde
+        }
+    }, 100); // minimaler Delay für Sichtbarkeit
 });
 
 document.getElementById('close-radar').addEventListener('click', () => {
