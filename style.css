@@ -47,10 +47,12 @@ button {
     left: 70%;
     transform: translate(-50%, -50%);
     background-color: transparent;
-    font-size: 80px;
+    font-size: 75px;
     font-family: 'Comic Sans MS', 'Comic Neue', cursive, sans-serif;
     font-weight: bold;
     width: 300px;
+    height: 90px;
+    white-space: nowrap;
     text-align: center;
     color: #000;
 }
