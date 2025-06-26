@@ -43,11 +43,11 @@ button {
 
 #speech-bubble {
     position: absolute;
-    top: 35%;
-    left: 70%;
+    top: 32%;
+    left: 60%;
     transform: translate(-50%, -50%);
     background-color: transparent;
-    font-size: 75px;
+    font-size: 45px;
     font-family: 'Comic Sans MS', 'Comic Neue', cursive, sans-serif;
     font-weight: bold;
     width: 300px;
