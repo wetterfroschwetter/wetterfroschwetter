@@ -137,16 +137,6 @@ button {
     width: 20px;
     height: 20px;
 }
-ChatGPT:
-Perfekt! Du hast mir alles gegeben – und hier kommt die punktgenaue Anleitung, um deine Seite mobil nutzbar und schön lesbar auf Smartphones zu machen 📱✅
-
-✅ Was du ergänzen musst in deiner style.css
-Füge das ganz unten in deiner style.css ein:
-
-css
-Kopieren
-Bearbeiten
-/* 📱 Mobile Optimierung */
 @media (max-width: 600px) {
   body {
     font-size: 16px;
