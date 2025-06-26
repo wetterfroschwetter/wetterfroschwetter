@@ -193,3 +193,49 @@ button {
   }
 }
 
+#radar-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+}
+
+.radar-header {
+    background: #222;
+    color: white;
+    padding: 10px;
+    text-align: right;
+}
+
+.radar-attribution {
+    background: #222;
+    color: white;
+    font-size: 12px;
+    padding: 5px 10px;
+    text-align: right;
+}
+
+#map {
+    width: 100%;
+    height: 100%;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.topbar-button {
+    margin-left: auto;
+    background-color: #555;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
