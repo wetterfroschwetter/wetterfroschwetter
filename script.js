@@ -1,9 +1,8 @@
-
 document.getElementById('weather-form').addEventListener('submit', function(e) {
     e.preventDefault();
 
     const rawInput = document.getElementById('city-input').value || "";
-    const city = rawInput.trim().replace(/\s+/g, ' '); // Eingabe bereinigen
+    const city = rawInput.trim().replace(/\s+/g, ' ');
 
     const bubble = document.getElementById('speech-bubble');
 
@@ -21,8 +20,10 @@ document.getElementById('weather-form').addEventListener('submit', function(e) {
                 bubble.textContent = '❌ Ort nicht gefunden!';
                 return;
             }
+
             const lat = geo.results[0].latitude;
             const lon = geo.results[0].longitude;
+
             fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true&hourly=temperature_2m,weathercode&timezone=auto`)
                 .then(res => res.json())
                 .then(data => {
@@ -37,14 +38,9 @@ document.getElementById('weather-form').addEventListener('submit', function(e) {
                     const getForecast = (offsetHours) => {
                         const targetHour = new Date(now.getTime() + offsetHours * 60 * 60 * 1000);
                         const targetISO = targetHour.toISOString().slice(0, 13);
-
                         const index = times.findIndex(t => t.startsWith(targetISO));
                         if (index === -1) return null;
-
-                        return {
-                            temp: temps[index],
-                            code: codes[index]
-                        };
+                        return { temp: temps[index], code: codes[index] };
                     };
 
                     const formatCondition = (code) => {
@@ -80,7 +76,8 @@ document.getElementById('weather-form').addEventListener('submit', function(e) {
             bubble.textContent = '⚠️ Fehler beim Laden der Ortsdaten.';
         });
 });
-// Impressum anzeigen
+
+//  Impressum
 document.getElementById('impressum-button').addEventListener('click', () => {
     const bubble = document.getElementById('speech-bubble');
     bubble.style.fontSize = '12px';
@@ -94,9 +91,8 @@ document.getElementById('impressum-button').addEventListener('click', () => {
         <strong>Datenschutz:</strong> keine Datenspeicherung, keine Cookies, Wetterdaten von Open-Meteo.com.
     `;
 });
-let radarInitialized = false;
-let map, player;
 
+// Radar-Overlay 
 document.addEventListener("DOMContentLoaded", () => {
     const radarBtn = document.getElementById('radar-button');
     const closeBtn = document.getElementById('close-radar');
@@ -108,12 +104,5 @@ document.addEventListener("DOMContentLoaded", () => {
 
     closeBtn.addEventListener('click', () => {
         overlay.classList.add('hidden');
-    });
-});
-    closeBtn.addEventListener('click', () => {
-        overlay.classList.add('hidden');
-        if (player) {
-            player.stop();
-        }
     });
 });
