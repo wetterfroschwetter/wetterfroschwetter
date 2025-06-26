@@ -137,3 +137,67 @@ button {
     width: 20px;
     height: 20px;
 }
+ChatGPT:
+Perfekt! Du hast mir alles gegeben – und hier kommt die punktgenaue Anleitung, um deine Seite mobil nutzbar und schön lesbar auf Smartphones zu machen 📱✅
+
+✅ Was du ergänzen musst in deiner style.css
+Füge das ganz unten in deiner style.css ein:
+
+css
+Kopieren
+Bearbeiten
+/* 📱 Mobile Optimierung */
+@media (max-width: 600px) {
+  body {
+    font-size: 16px;
+    background-size: cover;
+    overflow-x: hidden;
+  }
+
+  #city-input {
+    width: 140px;
+    font-size: 14px;
+  }
+
+  button {
+    font-size: 14px;
+    padding: 8px 10px;
+  }
+
+  #speech-bubble {
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+    width: 90%;
+    max-width: 320px;
+    margin: 20px auto;
+    height: auto;
+    font-size: 18px;
+    white-space: normal;
+    padding: 15px;
+    background-color: rgba(255,255,255,0.8);
+    border-radius: 15px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  }
+
+  .topbar, .bottombar {
+    font-size: 16px;
+    padding: 10px;
+    text-align: center;
+  }
+
+  .search-container {
+    padding-top: 70px;
+  }
+
+  .logo-link {
+    font-size: 16px;
+    gap: 4px;
+  }
+
+  .logo-link img.logo-icon {
+    width: 16px;
+    height: 16px;
+  }
+}
