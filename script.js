@@ -101,3 +101,22 @@ document.getElementById('radar-button').addEventListener('click', () => {
 document.getElementById('close-radar').addEventListener('click', () => {
     document.getElementById('radar-overlay').classList.add('hidden');
 });
+document.getElementById('radar-button').addEventListener('click', () => {
+    document.getElementById('radar-overlay').classList.remove('hidden');
+
+    if (!window.radarInitialized) {
+        const map = L.map('map').setView([51, 10], 5); // Mitte Deutschland
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; OpenStreetMap-Mitwirkende'
+        }).addTo(map);
+
+        const player = new RainViewer({ map });
+        player.loadFrames();
+        window.radarInitialized = true;
+    }
+});
+
+document.getElementById('close-radar').addEventListener('click', () => {
+    document.getElementById('radar-overlay').classList.add('hidden');
+});
