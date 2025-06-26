@@ -1,7 +1,4 @@
-//query handler
-if (window.location.search === "?") {
-  history.replaceState(null, "", window.location.pathname);
-}
+
 
 //wetterabfrage
 document.getElementById('weather-form').addEventListener('submit', function(e) {
@@ -100,6 +97,9 @@ document.getElementById('impressum-button').addEventListener('click', () => {
 
 // Radar-Overlay 
 document.addEventListener("DOMContentLoaded", () => {
+   if (window.location.search === "?") {
+    window.history.replaceState({}, document.title, "/home");
+  }
     const radarBtn = document.getElementById('radar-button');
     const closeBtn = document.getElementById('close-radar');
     const overlay = document.getElementById('radar-overlay');
