@@ -121,6 +121,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 snowColors: false
             });
             player.loadFrames();
+            player.setRadarVisible(true);
             player.onLoaded(() => {
                 player.showFrame(player.getLastFrameIndex());
                 player.updateLayer();
