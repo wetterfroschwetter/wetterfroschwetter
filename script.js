@@ -105,20 +105,25 @@ document.addEventListener("DOMContentLoaded", () => {
     radarBtn.addEventListener('click', () => {
         overlay.classList.remove('hidden');
 
-        setTimeout(() => {
-            if (!radarInitialized) {
-                map = L.map('map').setView([51, 10], 6);
-                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                    attribution: '&copy; OpenStreetMap-Mitwirkende'
-                }).addTo(map);
+       setTimeout(() => {
+    if (!radarInitialized) {
+        map = L.map('map').setView([51, 10], 6);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; OpenStreetMap-Mitwirkende'
+        }).addTo(map);
 
-                player = new RainViewer({ map });
-                player.loadFrames();
-                radarInitialized = true;
-            } else {
-                map.invalidateSize(); // wichtig für sichtbare Karte
-            }
-        }, 100); // Karte braucht kurzen Delay, um sichtbar zu sein
+        player = new RainViewer({ map });
+        player.loadFrames();
+        player.onLoaded(() => {
+            player.showFrame(player.getLastFrameIndex());
+            player.start();
+        });
+
+        radarInitialized = true;
+    } else {
+        map.invalidateSize(); // wichtig für sichtbare Karte
+    }
+}, 100);// Karte braucht kurzen Delay, um sichtbar zu sein
     });
 
     closeBtn.addEventListener('click', () => {
