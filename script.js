@@ -1,3 +1,9 @@
+//query handler
+if (window.location.search === "?") {
+  history.replaceState(null, "", window.location.pathname);
+}
+
+//wetterabfrage
 document.getElementById('weather-form').addEventListener('submit', function(e) {
     e.preventDefault();
 
