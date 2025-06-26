@@ -208,30 +208,17 @@ button {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: #000;
+    background: rgba(0,0,0,0.95);
     z-index: 1000;
     display: flex;
     flex-direction: column;
 }
 
 .radar-header {
-    background: #222;
-    color: white;
     padding: 10px;
-    text-align: right;
-}
-
-.radar-attribution {
-    background: #222;
+    background-color: #222;
     color: white;
-    font-size: 12px;
-    padding: 5px 10px;
     text-align: right;
-}
-
-#map {
-    width: 100%;
-    height: 100%;
 }
 
 .hidden {
