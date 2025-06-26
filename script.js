@@ -1,29 +1,6 @@
-const frog = document.getElementById('frog');
-const mouth = document.getElementById('frog-mouth');
 
-function quakAnimation() {
-  let count = 0;
-  const interval = setInterval(() => {
-    mouth.classList.add('quak');
-    setTimeout(() => mouth.classList.remove('quak'), 200);
-    count++;
-    if (count >= 3) clearInterval(interval);
-  }, 400);
-}
-
-function randomBlink() {
-  setInterval(() => {
-    if (Math.random() > 0.7) {
-      frog.classList.add('blink');
-      setTimeout(() => frog.classList.remove('blink'), 300);
-    }
-  }, 3000);
-}
-
-randomBlink(); // Startet das zufällige Zwinkern
 document.getElementById('weather-form').addEventListener('submit', function(e) {
     e.preventDefault();
-     quakAnimation();
     const city = document.getElementById('city-input').value;
     const bubble = document.getElementById('speech-bubble');
     bubble.textContent = '🌡️ Lade Wetterdaten...';
