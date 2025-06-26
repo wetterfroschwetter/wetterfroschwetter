@@ -3,6 +3,10 @@ document.getElementById('weather-form').addEventListener('submit', function(e) {
     const city = document.getElementById('city-input').value;
     const bubble = document.getElementById('speech-bubble');
     bubble.textContent = '🌡️ Lade Wetterdaten...';
+    bubble.style.fontSize = '24px';
+bubble.style.fontWeight = 'bold';
+bubble.style.textAlign = 'center';
+bubble.style.justifyContent = 'center';
 
     fetch(`https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(city)}&count=1`)
         .then(res => res.json())
